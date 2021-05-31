@@ -4,6 +4,7 @@
 package com.pijush.prime.presentation.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.pijush.prime.common.vo.PrimeJsonRequest;
@@ -18,9 +19,10 @@ import com.pijush.prime.common.vo.PrimeJsonResponse;
  *
  */
 
-@Controller
+@Controller("/prime/")
 public class PrimeController {
 
+	@GetMapping("/json")
 	public PrimeJsonResponse getPrimeNumbersInJsonormat(final @RequestBody PrimeJsonRequest aPrimeJsonRequest) {
 		PrimeJsonResponse aPrimeJsonResponse = new PrimeJsonResponse();
 		return aPrimeJsonResponse;

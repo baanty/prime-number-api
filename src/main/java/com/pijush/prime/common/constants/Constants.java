@@ -17,4 +17,7 @@ public interface Constants {
 	public static final String NULL_INPUT = "Null Input Given";
 	public static final String INVALID_NUMBER = "Invalid Number Given";
 	public static final String INVALID_INTEGER = "Invalid Integer Given";
+	
+	/** Common Literals */
+	public static final String COMMA = ",";
 }

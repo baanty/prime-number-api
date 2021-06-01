@@ -8,15 +8,10 @@
 
 package com.pijush.prime.common.vo.jaxb;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.pijush.prime.common.vo.PrimeResponseType;
@@ -33,7 +28,7 @@ import com.pijush.prime.common.vo.PrimeResponseType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="initial" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="primes" type="{http://www.w3.org/2001/XMLSchema}unsignedLong" maxOccurs="unbounded"/>
+ *         &lt;element name="primes" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="error" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -55,8 +50,7 @@ public class PrimeResponse implements PrimeResponseType {
     @XmlElement(required = true)
     protected String initial;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "unsignedLong")
-    protected List<BigInteger> primes;
+    protected String primes;
     @XmlElement(required = true)
     protected String error;
 
@@ -87,30 +81,25 @@ public class PrimeResponse implements PrimeResponseType {
     /**
      * Gets the value of the primes property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the primes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPrimes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link BigInteger }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public List<BigInteger> getPrimes() {
-        if (primes == null) {
-            primes = new ArrayList<BigInteger>();
-        }
-        return this.primes;
+    public String getPrimes() {
+        return primes;
+    }
+
+    /**
+     * Sets the value of the primes property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPrimes(String value) {
+        this.primes = value;
     }
 
     /**

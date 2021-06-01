@@ -41,7 +41,7 @@ public class ValidationService implements Constants {
 		try {
 			Integer.parseInt(input);
 		} catch (NumberFormatException aNumberFormatException) {
-			anErrorCodeWrapper.setErrorCode(NULL_INPUT);
+			anErrorCodeWrapper.setErrorCode(INVALID_INTEGER);
 			anErrorCodeWrapper.setValidInput(false);
 		}
 

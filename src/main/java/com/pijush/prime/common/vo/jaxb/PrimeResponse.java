@@ -10,12 +10,15 @@ package com.pijush.prime.common.vo.jaxb;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+
+import com.pijush.prime.common.vo.PrimeResponseMarker;
 
 
 /**
@@ -44,7 +47,7 @@ import javax.xml.bind.annotation.XmlType;
     "primes"
 })
 @XmlRootElement(name = "primeResponse")
-public class PrimeResponse {
+public class PrimeResponse implements PrimeResponseMarker {
 
     @XmlElement(required = true)
     protected String initial;

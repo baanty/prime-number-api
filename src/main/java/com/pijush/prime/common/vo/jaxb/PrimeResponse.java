@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.pijush.prime.common.vo.PrimeResponseMarker;
+import com.pijush.prime.common.vo.PrimeResponseType;
 
 
 /**
@@ -34,6 +34,7 @@ import com.pijush.prime.common.vo.PrimeResponseMarker;
  *       &lt;sequence>
  *         &lt;element name="initial" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="primes" type="{http://www.w3.org/2001/XMLSchema}unsignedLong" maxOccurs="unbounded"/>
+ *         &lt;element name="error" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,16 +46,19 @@ import com.pijush.prime.common.vo.PrimeResponseMarker;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "initial",
-    "primes"
+    "primes",
+    "error"
 })
 @XmlRootElement(name = "primeResponse")
-public class PrimeResponse implements PrimeResponseMarker {
+public class PrimeResponse implements PrimeResponseType {
 
     @XmlElement(required = true)
     protected String initial;
     @XmlElement(required = true)
     @XmlSchemaType(name = "unsignedLong")
     protected List<BigInteger> primes;
+    @XmlElement(required = true)
+    protected String error;
 
     /**
      * Gets the value of the initial property.
@@ -107,6 +111,30 @@ public class PrimeResponse implements PrimeResponseMarker {
             primes = new ArrayList<BigInteger>();
         }
         return this.primes;
+    }
+
+    /**
+     * Gets the value of the error property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getError() {
+        return error;
+    }
+
+    /**
+     * Sets the value of the error property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setError(String value) {
+        this.error = value;
     }
 
 }

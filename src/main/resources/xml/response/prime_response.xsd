@@ -10,6 +10,7 @@
     <xs:sequence>
       <xs:element name="initial" type="xs:string"/>
       <xs:element maxOccurs="unbounded" name="primes" type="xs:unsignedLong"/>
+      <xs:element name="error" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 </xs:element>

@@ -20,4 +20,8 @@ public interface Constants {
 	
 	/** Common Literals */
 	public static final String COMMA = ",";
+	public static final String DOUBLE_QUOTE = "\"";
+	public static final String BLANK = "";
+	public static final String OPENING_SQUARE_BRACE = "[";
+	public static final String ENDING_SQUARE_BRACE = "]";
 }

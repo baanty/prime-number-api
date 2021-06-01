@@ -9,7 +9,7 @@
   <xs:complexType>
     <xs:sequence>
       <xs:element name="initial" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" name="primes" type="xs:unsignedByte"/>
+      <xs:element maxOccurs="unbounded" name="primes" type="xs:unsignedLong"/>
     </xs:sequence>
   </xs:complexType>
 </xs:element>

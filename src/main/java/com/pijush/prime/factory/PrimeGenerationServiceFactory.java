@@ -7,6 +7,7 @@ import com.pijush.prime.common.constants.PrimeGenerationAlgo;
 import com.pijush.prime.service.primegeneration.BruteForcePrimeGenerationService;
 import com.pijush.prime.service.primegeneration.EratosthenesSeivePrimeGenerationService;
 import com.pijush.prime.service.primegeneration.PrimeGenerationService;
+import com.pijush.prime.service.primegeneration.SundaramSievePrimeGenerationService;
 
 /**
  * Use this Factory service to decide the prime generation
@@ -22,6 +23,9 @@ public class PrimeGenerationServiceFactory {
 	
 	@Autowired
 	private EratosthenesSeivePrimeGenerationService anEratosthenesSeivePrimeGenerationService;
+	
+	@Autowired
+	private SundaramSievePrimeGenerationService aSundaramSievePrimeGenerationService;
 	
 	/**
 	 * Use this factory method to determine 
@@ -41,6 +45,12 @@ public class PrimeGenerationServiceFactory {
 				{
 					return anEratosthenesSeivePrimeGenerationService;
 				}
+			case SUNDARAM_SIEVE : 
+				{
+					return aSundaramSievePrimeGenerationService;
+				}
+		default:
+			break;
 		}
 		
 		return aBruteForcePrimeGenerationService;

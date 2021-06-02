@@ -46,13 +46,14 @@ public class PrimeController implements Constants {
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public PrimeResponseType getPrimeNumbersInJsonFormat(final @PathVariable("anIntegerString") String anIntegerString,
-			final @RequestParam("mediaType") String mediaType) {
+			final @RequestParam("mediaType") String mediaType,
+			final @RequestParam("algorithm") String algorithm) {
 		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory
 				.buildPrimeResponseTypeFromResponseTypeChoice(mediaType);
 		ErrorCodeWrapper anErrorCodeWrapper = aValidationService.isValidInput(anIntegerString);
 
 		PrimeGenerationService aPrimeGenerationService = aPrimeGenerationServiceFactory
-				.getPrimeGenerationServiceFromAlgo(PrimeGenerationAlgo.SUNDARAM_SIEVE);
+				.getPrimeGenerationServiceFromAlgo(PrimeGenerationAlgo.getPrimeAlgoFromRequestParam(algorithm));
 
 		if (!anErrorCodeWrapper.isValidInput()) {
 			aPrimeResponseType.setError(anErrorCodeWrapper.getErrorCode());

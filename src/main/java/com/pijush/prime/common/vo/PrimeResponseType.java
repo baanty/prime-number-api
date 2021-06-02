@@ -3,7 +3,7 @@ package com.pijush.prime.common.vo;
 /**
  * Use this interface to abstract the response type. It can JSON
  * or XML or text or anything. It is determined by an incoming http 
- * parameter.
+ * header.
  * 
  * @author Pijush Kanti Das
  *

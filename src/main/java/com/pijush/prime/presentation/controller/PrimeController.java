@@ -52,7 +52,7 @@ public class PrimeController implements Constants {
 		ErrorCodeWrapper anErrorCodeWrapper = aValidationService.isValidInput(anIntegerString);
 
 		PrimeGenerationService aPrimeGenerationService = aPrimeGenerationServiceFactory
-				.getPrimeGenerationServiceFromAlgo(PrimeGenerationAlgo.BRUTE_FORCE);
+				.getPrimeGenerationServiceFromAlgo(PrimeGenerationAlgo.ERATOSTHENES_SIEVE);
 
 		if (!anErrorCodeWrapper.isValidInput()) {
 			aPrimeResponseType.setError(anErrorCodeWrapper.getErrorCode());

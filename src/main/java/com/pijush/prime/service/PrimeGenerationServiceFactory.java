@@ -17,6 +17,9 @@ public class PrimeGenerationServiceFactory {
 	@Autowired
 	private BruteForcePrimeGenerationService aBruteForcePrimeGenerationService;
 	
+	@Autowired
+	private EratosthenesSeivePrimeGenerationService anEratosthenesSeivePrimeGenerationService;
+	
 	/**
 	 * Use this factory method to determine 
 	 * the desired algorythm or implementation of prime number generation.
@@ -30,6 +33,10 @@ public class PrimeGenerationServiceFactory {
 			case BRUTE_FORCE :
 				{
 					return aBruteForcePrimeGenerationService;
+				}
+			case ERATOSTHENES_SIEVE : 
+				{
+					return anEratosthenesSeivePrimeGenerationService;
 				}
 		}
 		

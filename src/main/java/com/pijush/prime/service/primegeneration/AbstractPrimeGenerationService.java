@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.pijush.prime.service;
+package com.pijush.prime.service.primegeneration;
 
 import java.util.List;
 

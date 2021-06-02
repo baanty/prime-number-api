@@ -1,4 +1,4 @@
-package com.pijush.prime.service;
+package com.pijush.prime.service.validationservice;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

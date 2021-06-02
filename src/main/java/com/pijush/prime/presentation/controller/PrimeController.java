@@ -17,10 +17,10 @@ import com.pijush.prime.common.constants.Constants;
 import com.pijush.prime.common.constants.PrimeGenerationAlgo;
 import com.pijush.prime.common.vo.ErrorCodeWrapper;
 import com.pijush.prime.common.vo.PrimeResponseType;
-import com.pijush.prime.service.PrimeGenerationService;
-import com.pijush.prime.service.PrimeGenerationServiceFactory;
-import com.pijush.prime.service.ResponseGenerationFactory;
-import com.pijush.prime.service.ValidationService;
+import com.pijush.prime.factory.PrimeGenerationServiceFactory;
+import com.pijush.prime.factory.ResponseGenerationFactory;
+import com.pijush.prime.service.primegeneration.PrimeGenerationService;
+import com.pijush.prime.service.validationservice.ValidationService;
 
 /**
  * Use this controller as the entry point to the prime number generator API.

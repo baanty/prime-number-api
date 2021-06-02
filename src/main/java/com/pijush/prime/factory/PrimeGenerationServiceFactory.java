@@ -1,9 +1,12 @@
-package com.pijush.prime.service;
+package com.pijush.prime.factory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pijush.prime.common.constants.PrimeGenerationAlgo;
+import com.pijush.prime.service.primegeneration.BruteForcePrimeGenerationService;
+import com.pijush.prime.service.primegeneration.EratosthenesSeivePrimeGenerationService;
+import com.pijush.prime.service.primegeneration.PrimeGenerationService;
 
 /**
  * Use this Factory service to decide the prime generation

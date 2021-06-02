@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -46,10 +47,10 @@ public class PrimeController implements Constants {
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public PrimeResponseType getPrimeNumbersInJsonFormat(final @PathVariable("anIntegerString") String anIntegerString,
-			final @RequestParam( name = "mediaType", required = false, defaultValue = "json" ) String mediaType,
+			final @RequestHeader(name = "media-type", required = false, defaultValue = "JSON" ) String mediaTypeHeader,
 			final @RequestParam( name = "algorithm", required = false, defaultValue = "BRUTE_FORCE" ) String algorithm) {
 		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory
-				.buildPrimeResponseTypeFromResponseTypeChoice(mediaType);
+				.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
 		ErrorCodeWrapper anErrorCodeWrapper = aValidationService.isValidInput(anIntegerString);
 
 		PrimeGenerationService aPrimeGenerationService = aPrimeGenerationServiceFactory

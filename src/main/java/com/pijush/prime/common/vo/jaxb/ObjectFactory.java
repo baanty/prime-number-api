@@ -37,11 +37,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PrimeResponse }
+     * Create an instance of {@link PrimeResponseXml }
      * 
      */
-    public PrimeResponse createPrimeResponse() {
-        return new PrimeResponse();
+    public PrimeResponseXml createPrimeResponse() {
+        return new PrimeResponseXml();
     }
 
 }

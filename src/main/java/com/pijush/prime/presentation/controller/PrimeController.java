@@ -51,13 +51,19 @@ public class PrimeController implements Constants {
 			final @RequestParam( name = "algorithm", required = false, defaultValue = "BRUTE_FORCE" ) String algorithm) {
 		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory
 				.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
-		ErrorCodeWrapper anErrorCodeWrapper = aValidationService.isValidInput(anIntegerString);
+		ErrorCodeWrapper inputValidationResult = aValidationService.isValidInput(anIntegerString);
+		ErrorCodeWrapper httpHeaderValidationResult = aValidationService.isValidHttpHeader(mediaTypeHeader);
 
 		PrimeGenerationService aPrimeGenerationService = aPrimeGenerationServiceFactory
 				.getPrimeGenerationServiceFromAlgo(PrimeGenerationAlgo.getPrimeAlgoFromRequestParam(algorithm));
 
-		if (!anErrorCodeWrapper.isValidInput()) {
-			aPrimeResponseType.setError(anErrorCodeWrapper.getErrorCode());
+		if ( !inputValidationResult.isValidInput()) {
+			aPrimeResponseType.setError(inputValidationResult.getErrorCode());
+			return aPrimeResponseType;
+		}
+		
+		if ( !httpHeaderValidationResult.isValidInput()) {
+			aPrimeResponseType.setError(httpHeaderValidationResult.getErrorCode());
 			return aPrimeResponseType;
 		}
 		aPrimeResponseType.setInitial(anIntegerString);

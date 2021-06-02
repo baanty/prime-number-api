@@ -45,7 +45,7 @@ import com.pijush.prime.common.vo.PrimeResponseType;
     "error"
 })
 @XmlRootElement(name = "primeResponse")
-public class PrimeResponse implements PrimeResponseType {
+public class PrimeResponseXml implements PrimeResponseType {
 
     @XmlElement(required = true)
     protected String initial;

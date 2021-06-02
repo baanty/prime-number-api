@@ -17,6 +17,7 @@ public interface Constants {
 	public static final String NULL_INPUT = "Null Input Given";
 	public static final String INVALID_NUMBER = "Invalid Number Given";
 	public static final String INVALID_INTEGER = "Invalid Integer Given";
+	public static final String INVALID_HTTP_HEADER = "Invalid Http Header %s";
 	
 	/** Common Literals */
 	public static final String COMMA = ",";
@@ -25,3 +26,4 @@ public interface Constants {
 	public static final String OPENING_SQUARE_BRACE = "[";
 	public static final String ENDING_SQUARE_BRACE = "]";
 }
+

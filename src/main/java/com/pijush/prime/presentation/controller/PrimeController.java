@@ -60,8 +60,12 @@ public class PrimeController implements Constants {
 		}
 		aPrimeResponseType.setInitial(anIntegerString);
 		aPrimeResponseType
-				.setPrimes(String.join(COMMA, aPrimeGenerationService.generatePrimes(Integer.parseInt(anIntegerString))
-						.stream().map(String::valueOf).collect(Collectors.toList())));
+				.setPrimes(String.join(COMMA, 
+						 aPrimeGenerationService
+						.loadPrimeFromCache(Integer.parseInt(anIntegerString))
+						.stream()
+						.map(String::valueOf)
+						.collect(Collectors.toList())));
 		return aPrimeResponseType;
 	}
 }

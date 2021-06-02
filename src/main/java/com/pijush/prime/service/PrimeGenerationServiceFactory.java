@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pijush.prime.common.constants.PrimeGenerationAlgo;
-import com.pijush.prime.service.PrimeGenerationService.BruteForcePrimeGenerationService;
 
 /**
  * Use this Factory service to decide the prime generation

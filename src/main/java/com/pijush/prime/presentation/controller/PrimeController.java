@@ -47,10 +47,12 @@ public class PrimeController implements Constants {
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public PrimeResponseType getPrimeNumbersInJsonFormat(final @PathVariable("anIntegerString") String anIntegerString,
-			final @RequestHeader(name = "media-type", required = false, defaultValue = "JSON" ) String mediaTypeHeader,
+			final @RequestHeader(name = "media-type", required = false, defaultValue = "json" ) String mediaTypeHeader,
 			final @RequestParam( name = "algorithm", required = false, defaultValue = "BRUTE_FORCE" ) String algorithm) {
-		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory
-				.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
+		
+		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
+		
+		
 		ErrorCodeWrapper inputValidationResult = aValidationService.isValidInput(anIntegerString);
 		ErrorCodeWrapper httpHeaderValidationResult = aValidationService.isValidHttpHeader(mediaTypeHeader);
 

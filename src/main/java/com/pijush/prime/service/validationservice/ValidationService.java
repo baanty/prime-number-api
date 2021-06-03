@@ -39,6 +39,7 @@ public class ValidationService implements Constants {
 		if ( StringUtils.isEmpty(input) ) {
 			anErrorCodeWrapper.setErrorCode(NULL_INPUT);
 			anErrorCodeWrapper.setValidInput(false);
+			return anErrorCodeWrapper;
 		} 
 		
 		try {

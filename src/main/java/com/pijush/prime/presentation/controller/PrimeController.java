@@ -46,7 +46,7 @@ public class PrimeController implements Constants {
 	@GetMapping(value = "/{anIntegerString}", produces = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
-	public PrimeResponseType getPrimeNumbersInJsonFormat(final @PathVariable("anIntegerString") String anIntegerString,
+	public PrimeResponseType getPrimeNumbers(final @PathVariable("anIntegerString") String anIntegerString,
 			final @RequestHeader(name = "media-type", required = false, defaultValue = "json" ) String mediaTypeHeader,
 			final @RequestParam( name = "algorithm", required = false, defaultValue = "BRUTE_FORCE" ) String algorithm) {
 		

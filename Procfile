@@ -1,1 +1,1 @@
-web: java -jar prime-number-api-0.0.1-SNAPSHOT com.pijush.prime.PrimeApplication
+web: java -jar target/prime-number-api-0.0.1-SNAPSHOT.jar com.pijush.prime.PrimeApplication

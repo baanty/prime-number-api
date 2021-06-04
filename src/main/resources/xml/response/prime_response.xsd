@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/prime_response"
+	xmlns:tns="http://www.example.org/prime_response"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="primeResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="initial" type="xs:string"/>
+      <xs:element name="primes" type="xs:string"/>
+      <xs:element name="error" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</schema>

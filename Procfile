@@ -1,0 +1,1 @@
+web: java -jar target/prime-number-api-0.0.1-SNAPSHOT

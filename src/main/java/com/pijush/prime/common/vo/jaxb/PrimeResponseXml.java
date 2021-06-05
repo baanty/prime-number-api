@@ -14,8 +14,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.springframework.http.MediaType;
-
 import com.pijush.prime.common.vo.PrimeResponseType;
 
 
@@ -128,9 +126,5 @@ public class PrimeResponseXml implements PrimeResponseType {
         this.error = value;
     }
 
-	@Override
-	public String getMediaType() {
-		return MediaType.APPLICATION_XML_VALUE;
-	}
 
 }

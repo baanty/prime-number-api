@@ -1,6 +1,8 @@
 ## prime-number-api
 
-The project calculates prime numbers till a limit. The input must be in the URL form http://www.myhost.com/10?mediaType=json&algorithm=SUNDARAM_SIEVE
+The project calculates prime numbers till a limit. The input must be in the URL form http://prime-git.herokuapp.com/primes/10?algorithm=SUNDARAM_SIEVE.
+The API is currently deployed at the above URL. In tis case, the numeric '10' is a placeholder of the input number.
+
 Points to keep in mind when accessing the API are,
 
 #### There ia an http header

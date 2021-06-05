@@ -17,6 +17,5 @@ public interface PrimeResponseType {
 	public void setPrimes(String primes) ;
 	public String getError() ;
 	public void setError(String error) ;
-	public String getMediaType();
 	
 }

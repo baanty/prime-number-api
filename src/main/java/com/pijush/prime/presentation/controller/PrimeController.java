@@ -12,10 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.pijush.prime.common.constants.Constants;
 import com.pijush.prime.common.constants.PrimeGenerationAlgo;
@@ -34,8 +31,9 @@ import com.pijush.prime.service.validationservice.ValidationService;
  *
  */
 
-@Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
 @Controller
+@Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class PrimeController implements Constants {
 
 	@Autowired
@@ -47,16 +45,6 @@ public class PrimeController implements Constants {
 	@Autowired
 	private ResponseGenerationFactory aResponseGenerationFactory;
 
-
-	@GetMapping(value = "/{anIntegerString}")
-	public ModelAndView getPrimeNumbersFrontController(
-			final @PathVariable("anIntegerString") String anIntegerString,
-			final @RequestHeader(name = "media-type", required = false, defaultValue = "json" ) String mediaTypeHeader,
-			final @RequestParam( name = "algorithm", required = false, defaultValue = "BRUTE_FORCE" ) String algorithm
-			) {
-		return new ModelAndView(REDIRECTOR + mediaTypeHeader + FRONT_SLASH + anIntegerString + FRONT_SLASH + algorithm );
-		
-	}
 	
 	@ResponseBody
 	@GetMapping(value = "/redirected/{mediaTypeHeader}/{anIntegerString}/{algorithm}", produces = MediaType.APPLICATION_JSON_VALUE )

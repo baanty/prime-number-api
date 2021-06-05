@@ -26,7 +26,7 @@ public class PrimeApplicationIntegrationTest implements Constants {
 	
 	@Test
 	public void testWithValidParameters() {
-		PrimeResponseType aPrimeResponseType = aPrimeController.getPrimeNumbers("10", "XML", "BRUTE_FORCE");
+		PrimeResponseType aPrimeResponseType = aPrimeController.getPrimeNumbersXml("10", "BRUTE_FORCE");
 		assertNotNull(aPrimeResponseType);
 		assertTrue(aPrimeResponseType instanceof PrimeResponseXml);
 		assertNull(aPrimeResponseType.getError());
@@ -36,7 +36,7 @@ public class PrimeApplicationIntegrationTest implements Constants {
 	
 	@Test
 	public void testWithValidParametersJson() {
-		PrimeResponseType aPrimeResponseType = aPrimeController.getPrimeNumbers("10", "JSON", "BRUTE_FORCE");
+		PrimeResponseType aPrimeResponseType = aPrimeController.getPrimeNumbersJson("10", "BRUTE_FORCE");
 		assertNotNull(aPrimeResponseType);
 		assertTrue(aPrimeResponseType instanceof PrimeResponseJson);
 		assertNull(aPrimeResponseType.getError());
@@ -46,7 +46,7 @@ public class PrimeApplicationIntegrationTest implements Constants {
 	
 	@Test
 	public void testWithValidParametersJsonInvalidHttpHeader() {
-		PrimeResponseType aPrimeResponseType = aPrimeController.getPrimeNumbers("10", "XLM", "BRUTE_FORCE");
+		PrimeResponseType aPrimeResponseType = aPrimeController.getResponseForInValidHeader("10", "BRUTE_FORCE", "XLM");
 		assertNotNull(aPrimeResponseType);
 		assertTrue(aPrimeResponseType instanceof PrimeResponseJson);
 		assertNotNull(aPrimeResponseType.getError());

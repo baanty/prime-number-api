@@ -26,5 +26,11 @@ public interface Constants {
 	public static final String OPENING_SQUARE_BRACE = "[";
 	public static final String ENDING_SQUARE_BRACE = "]";
 	public static final String PIPING = "|";
+	public static final String FRONT_SLASH = "/";
+	public static final String BACK_SLASH = "\\";
+	
+	/**  String Constants */
+	public static final String REDIRECTOR = "redirect:/redirected/";
+	
 }
 

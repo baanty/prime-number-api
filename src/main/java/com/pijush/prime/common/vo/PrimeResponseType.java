@@ -10,10 +10,13 @@ package com.pijush.prime.common.vo;
  */
 public interface PrimeResponseType {
 	
+	
 	public String getInitial() ;
 	public void setInitial(String initial) ;
 	public String getPrimes() ;
 	public void setPrimes(String primes) ;
 	public String getError() ;
 	public void setError(String error) ;
+	public String getMediaType();
+	
 }

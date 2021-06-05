@@ -12,7 +12,7 @@ Points to keep in mind when accessing the API are,
                     So, the user can pass three values. These values are BRUTE_FORCE, ERATOSTHENES_SIEVE and SUNDARAM_SIEVE. 
                     All these algorithms have their computation cost. The user must pass a value of the algorithm parameter
                     from the above allowed values list. If no value is given, then the BRUTE_FORCE algorithm will be used by
-                    default.
+                    default. If an invalid value is give, then also the BRUTE_FORCE algorithm will be used.
                     
                     
                     

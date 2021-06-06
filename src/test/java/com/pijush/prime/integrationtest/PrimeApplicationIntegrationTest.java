@@ -1,10 +1,8 @@
 package com.pijush.prime.integrationtest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.*;
+
+
 
 import java.util.ArrayList;
 import java.util.List;

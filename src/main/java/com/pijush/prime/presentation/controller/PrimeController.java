@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.pijush.prime.common.constants.Constants;
 import com.pijush.prime.common.constants.PrimeGenerationAlgo;
 import com.pijush.prime.common.vo.ErrorCodeWrapper;
-import com.pijush.prime.common.vo.PrimeResponseType;
+import com.pijush.prime.common.vo.PrimeResponse;
 import com.pijush.prime.factory.PrimeGenerationServiceFactory;
 import com.pijush.prime.factory.ResponseGenerationFactory;
 import com.pijush.prime.service.primegeneration.PrimeGenerationService;
@@ -48,7 +48,7 @@ public class PrimeController implements Constants {
 	
 	@ResponseBody
 	@GetMapping(value = "/redirected/{mediaTypeHeader}/{anIntegerString}/{algorithm}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public PrimeResponseType getResponseForInValidHeader(final @PathVariable("anIntegerString") String anIntegerString,
+	public PrimeResponse getResponseForInValidHeader(final @PathVariable("anIntegerString") String anIntegerString,
 										        final @PathVariable("algorithm") String algorithm,
 										        final @PathVariable("mediaTypeHeader") String mediaTypeHeader) {
 		return calculate(anIntegerString, mediaTypeHeader, algorithm);
@@ -56,23 +56,23 @@ public class PrimeController implements Constants {
 	
 	@ResponseBody
 	@GetMapping(value = "/redirected/xml/{anIntegerString}/{algorithm}", produces = MediaType.APPLICATION_XML_VALUE )
-	public PrimeResponseType getPrimeNumbersXml(final @PathVariable("anIntegerString") String anIntegerString,
+	public PrimeResponse getPrimeNumbersXml(final @PathVariable("anIntegerString") String anIntegerString,
 										        final @PathVariable("algorithm") String algorithm) {
 		return calculate(anIntegerString, XML, algorithm);
 	}
 	
 	@ResponseBody
 	@GetMapping(value = "/redirected/json/{anIntegerString}/{algorithm}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public PrimeResponseType getPrimeNumbersJson(final @PathVariable("anIntegerString") String anIntegerString,
+	public PrimeResponse getPrimeNumbersJson(final @PathVariable("anIntegerString") String anIntegerString,
 	        								     final @PathVariable("algorithm") String algorithm) {
 		return calculate(anIntegerString, JSON, algorithm);
 	}
 	
-	private PrimeResponseType calculate(final String anIntegerString,
+	private PrimeResponse calculate(final String anIntegerString,
 										final String mediaTypeHeader,
 										final String algorithm) {
 		
-		PrimeResponseType aPrimeResponseType = aResponseGenerationFactory.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
+		PrimeResponse aPrimeResponseType = aResponseGenerationFactory.buildPrimeResponseTypeFromResponseTypeChoice(mediaTypeHeader);
 	
 		
 		ErrorCodeWrapper inputValidationResult = aValidationService.isValidInput(anIntegerString);

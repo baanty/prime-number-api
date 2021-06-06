@@ -8,12 +8,12 @@ package com.pijush.prime.common.vo;
  * @author Pijush Kanti Das
  *
  */
-public interface PrimeResponseType {
+public interface PrimeResponse {
 	
 	
 	public String getInitial() ;
 	public void setInitial(String initial) ;
-	public String getPrimes() ;
+	public Object getPrimes() ;
 	public void setPrimes(String primes) ;
 	public String getError() ;
 	public void setError(String error) ;

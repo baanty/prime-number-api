@@ -5,7 +5,7 @@ import org.springframework.util.StringUtils;
 
 import com.pijush.prime.common.constants.Constants;
 import com.pijush.prime.common.vo.PrimeResponseJson;
-import com.pijush.prime.common.vo.PrimeResponseType;
+import com.pijush.prime.common.vo.PrimeResponse;
 import com.pijush.prime.common.vo.jaxb.PrimeResponseXml;
 
 /**
@@ -25,7 +25,7 @@ public class ResponseGenerationFactory implements Constants {
 	 * @param mediaType
 	 * @return
 	 */
-	public PrimeResponseType buildPrimeResponseTypeFromResponseTypeChoice(final String mediaType) {
+	public PrimeResponse buildPrimeResponseTypeFromResponseTypeChoice(final String mediaType) {
 		
 		if ( StringUtils.isEmpty(mediaType) || !mediaType.equalsIgnoreCase(XML)  ) {
 			return new PrimeResponseJson();

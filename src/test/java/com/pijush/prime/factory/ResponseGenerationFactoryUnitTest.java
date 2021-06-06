@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.pijush.prime.common.vo.PrimeResponseJson;
-import com.pijush.prime.common.vo.PrimeResponseType;
+import com.pijush.prime.common.vo.PrimeResponse;
 import com.pijush.prime.common.vo.jaxb.PrimeResponseXml;
 
 @RunWith(MockitoJUnitRunner.class) 
@@ -28,14 +28,14 @@ public class ResponseGenerationFactoryUnitTest {
 	
 	@Test
 	public void testXmlResponse() {
-		PrimeResponseType aPrimeResponseType = aFactory.buildPrimeResponseTypeFromResponseTypeChoice("XML");
+		PrimeResponse aPrimeResponseType = aFactory.buildPrimeResponseTypeFromResponseTypeChoice("XML");
 		assertTrue(aPrimeResponseType instanceof PrimeResponseXml);
 	}
 	
 	
 	@Test
 	public void testJsonResponse() {
-		PrimeResponseType aPrimeResponseType = aFactory.buildPrimeResponseTypeFromResponseTypeChoice("JSON");
+		PrimeResponse aPrimeResponseType = aFactory.buildPrimeResponseTypeFromResponseTypeChoice("JSON");
 		assertTrue(aPrimeResponseType instanceof PrimeResponseJson);
 	}
 

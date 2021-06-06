@@ -4,8 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 import org.assertj.core.util.Arrays;
 import org.junit.Test;
@@ -29,14 +35,49 @@ public class PrimeApplicationIntegrationTest implements Constants {
 	@Autowired
 	PrimeController aPrimeController;
 	
-	@Test
-	public void testWithValidParameters() {
+	@Autowired
+	ExecutorService executor;
+	
+	private static final int NUMBER_OF_CONCURRENT_RUNS = 100000 ;
+	
+	private void executeControllerTest() {
 		PrimeResponse aPrimeResponseType = aPrimeController.getPrimeNumbersXml("10", "BRUTE_FORCE");
 		assertNotNull(aPrimeResponseType);
 		assertTrue(aPrimeResponseType instanceof PrimeResponseXml);
 		assertNull(aPrimeResponseType.getError());
 		assertEquals("10", aPrimeResponseType.getInitial());
 		assertEquals("2,3,5,7", aPrimeResponseType.getPrimes());
+	
+	}
+	
+	@Test
+	public void testWithValidParameters() {
+		executeControllerTest();
+	}
+	
+	@Test
+	public void testWithValidParametersLoadTest() {
+		List<Future<?>> futures = new ArrayList<Future<?>>();
+		
+		for ( int threadMark = 0 ; threadMark < NUMBER_OF_CONCURRENT_RUNS ; threadMark++ ) {
+			Future<?> future = executor.submit(() -> executeControllerTest());
+			futures.add(future);
+		}
+		
+		try {
+			futures.stream().map(f -> {
+				try {
+					return f.get();
+				} catch (InterruptedException | ExecutionException anException) {
+					fail("Test Failed");
+					anException.printStackTrace();
+				}
+				return null;
+			}).allMatch(Objects::nonNull);
+		} catch ( Exception anException) {
+			fail("Test Failed");
+			anException.printStackTrace();
+		}
 	}
 	
 	@Test

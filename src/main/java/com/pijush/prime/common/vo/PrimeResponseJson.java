@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.platform.commons.util.StringUtils;
+import org.springframework.util.StringUtils;
 
 import com.pijush.prime.common.constants.Constants;
 
@@ -22,7 +22,7 @@ public class PrimeResponseJson implements PrimeResponse, Constants {
 	@Override
 	public void setPrimes(String primes) {
 		
-		if ( StringUtils.isNotBlank(primes) ) {
+		if ( !StringUtils.isEmpty(primes) ) {
 			
 			if ( this.primes == null ) {
 				this.primes = new ArrayList<Integer>();

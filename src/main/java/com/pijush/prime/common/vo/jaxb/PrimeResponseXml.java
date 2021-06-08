@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.pijush.prime.common.vo.PrimeResponseType;
+import com.pijush.prime.common.vo.PrimeResponse;
 
 
 /**
@@ -45,7 +45,7 @@ import com.pijush.prime.common.vo.PrimeResponseType;
     "error"
 })
 @XmlRootElement(name = "primeResponse")
-public class PrimeResponseXml implements PrimeResponseType {
+public class PrimeResponseXml implements PrimeResponse {
 
     @XmlElement(required = true)
     protected String initial;
@@ -125,5 +125,6 @@ public class PrimeResponseXml implements PrimeResponseType {
     public void setError(String value) {
         this.error = value;
     }
+
 
 }
